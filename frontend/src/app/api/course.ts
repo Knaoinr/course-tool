@@ -15,7 +15,7 @@ export const fetchCourseInfos = createAsyncThunk<
   const url = `${process.env.backendUrl}/courses?`;
   const params = new URLSearchParams(ids.map((id) => ["courseID", id]));
 
-  params.set("schedules", "true");
+  params.set("schedulesAvailable", "true");
 
   if (state.user.loggedIn) {
     params.set("fces", "true");
@@ -59,7 +59,7 @@ export const fetchCourseInfosByPage = createAsyncThunk<
   const url = `${process.env.backendUrl}/courses/search?`;
   const params = new URLSearchParams({
     page: `${page}`,
-    schedules: "true",
+    schedulesAvailable: "true",
   });
 
   if (state.filters.search !== "") {
